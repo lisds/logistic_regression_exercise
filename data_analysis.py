@@ -2,13 +2,14 @@
 import pandas as pd
 import numpy as np
 import cost_function_utils
+from IPython.display import display
 
-# Import data
-...
+# generate some toy data
+data = pd.DataFrame({'A': np.random.normal(100, 10, 100),
+                    'B': np.random.normal(10, 1, 100)})
 
+# show the data
+display(data)
 
-# Create a plot of `Class ~ Hemoglobin`
-...
-
-# Fit the logistic regression model
-...
+# create a plot
+data.plot(kind='scatter', x='A', y='B')
