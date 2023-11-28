@@ -1,5 +1,7 @@
 # Logistic regression exercise task
 
+**Do not fork this repository!**. It is for illustrative purposes only.
+
 This is an example repo for the logistic regression exercise task.
 
 It is currently just a skeleton, to show you the sort of file structure your 
