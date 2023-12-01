@@ -13,7 +13,7 @@ E.g. predicting whether or not a patient has CKD from their hemoglobin score.
 
 To do this you should modify the following files:
 
-- COST FUNCTION MODULE: (`cost_function_utils.py`) this .py should contain the
+- COST FUNCTION MODULE: (`cost_function_utils.py`) this .py should contain an
   inverse logit transformation function, and the logistic regression cost function.
   DO NOT COPY/PASTE the functions from the textbook page, try to
   re-write them line-by-line yourselves so you understand what each line is doing.
