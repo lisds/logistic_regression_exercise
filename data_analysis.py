@@ -1,4 +1,5 @@
-# this script performs logistic regression analysis of the CKD data
+# you need to modify this script so that it performs logistic regression analysis
+# on the CKD data
 import cost_function_utils
 import pandas as pd
 import numpy as np
