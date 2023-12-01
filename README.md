@@ -42,5 +42,5 @@ The file `showcase_notebook.Rmd` should be used **only** to run your
 `data_analysis.py` script (e.g. to fit the models and show the plots).
 
 You should then submit your work by sending a pull request to merge the
-changes on your branch back to the repository you forked from: 
+changes on your branch back to the repository you forked from, e.g.: 
 https://github.com/lisds/logistic_regression_exercise
