@@ -29,7 +29,7 @@ To do this you should modify the following scripts:
     - Then the script should fit your model (`Class ~ Hemoglobin`) using
         `minimize` (by importing your cost function `cost_function_utils.py`).
       
-    - You should then fit the same model using statsmodels.
+    - You should then fit the same model using `statsmodels`.
       
     - You should write some tests to check that `minimize` and `statsmodels`
       are producing similar parameter estimates (HINT: you may want to investigate
@@ -40,7 +40,3 @@ To do this you should modify the following scripts:
 
 The file `showcase_notebook.Rmd` should be used **only** to run your 
 `data_analysis.py` script (e.g. to fit the models and show the plots).
-The `showcase_notebook.ipynb` is to run the data analysis script, for
-presentation etc. (Normally we would prefer .Rmd files, but this notebook
-is only a few lines long, and is only being used to run one other script, so it
-is OK in this case).
