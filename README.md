@@ -11,7 +11,7 @@ the new workflow (e.g. using the command line, scripts, git and github). You sho
 Your task is then to fit the following logistic regression model `Class ~ Hemoglobin`.
 E.g. predicting whether or not a patient has CKD from their hemoglobin score.
 
-To do this you should modify the following scripts:
+To do this you should modify the following files:
 
 - COST FUNCTION MODULE: (`cost_function_utils.py`) this .py should contain the
   inverse logit transformation function, and the logistic regression cost function.
