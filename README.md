@@ -13,8 +13,8 @@ E.g. predicting whether or not a patient has CKD from their hemoglobin score.
 
 To do this you should modify the following scripts:
 
-- COST FUNCTION MODULE: (`cost_function_utils.py`) this .py should contain the th
-  the inverse logit transformation function, and the logistic regression cost function.
+- COST FUNCTION MODULE: (`cost_function_utils.py`) this .py should contain the
+  inverse logit transformation function, and the logistic regression cost function.
   DO NOT COPY/PASTE the functions from the textbook page, try to
   re-write them line-by-line yourselves so you understand what each line is doing.
   These functions can then can imported by other scripts in the repository, e.g.
@@ -36,7 +36,7 @@ To do this you should modify the following scripts:
       `np.isclose()` and `assert` - ask us for help with this also).
       
     - You should then create a new plot, showing `Class ~ Hemoglobin`, but 
-    also showing the predictions from your logistic regression model.
+      also showing the predictions from your logistic regression model.
 
 The file `showcase_notebook.Rmd` should be used **only** to run your 
 `data_analysis.py` script (e.g. to fit the models and show the plots).
