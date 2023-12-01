@@ -19,5 +19,7 @@ This notebook can be used to the data analysis script.
 The `data_analysis.py` script, by default contains some junk code, which generates the output below.
 
 ```{python}
+# run the data analysis script to produce the analysis and show
+# the graphs
 run data_analysis.py
 ```
