@@ -1,0 +1,53 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.15.2
+  kernelspec:
+    display_name: Python 3 (ipykernel)
+    language: python
+    name: python3
+---
+
+```{python}
+# on the CKD data
+import cost_function_utils
+import pandas as pd
+import numpy as np
+from IPython.display import display
+
+# this just shows how to use your `cost_function_utils` module with the current
+# script
+cost_function_utils.junk_function()
+
+# generate some toy data
+data = pd.DataFrame({'A': np.random.normal(100, 10, 100),
+                    'B': np.random.normal(10, 1, 100)})
+
+# show the data
+display(data)
+
+# create a plot
+data.plot(kind='scatter', x='A', y='B')
+
+```
+
+```{python}
+def plot_hgb_app():
+    # Build plot, add custom labels.
+    colors = hgb_app['appetite'].replace(['poor', 'good'], ['red', 'blue'])
+    hgb_app.plot.scatter('hemoglobin', 'appetite_dummy', c=colors)
+    plt.ylabel('Appetite\n0 = poor, 1 = good')
+    plt.yticks([0,1]);  # Just label 0 and 1 on the y axis.
+    # Put a custom legend on the plot.  This code is a little obscure.
+    plt.scatter([], [], c='blue', label='good')
+    plt.scatter([], [], c='red', label='poor')
+
+# Do the plot
+plot_hgb_app()
+# Show the legend
+plt.legend();
+```
