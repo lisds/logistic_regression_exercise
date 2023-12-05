@@ -5,7 +5,7 @@ jupyter:
       extension: .Rmd
       format_name: rmarkdown
       format_version: '1.2'
-      jupytext_version: 1.14.5
+      jupytext_version: 1.15.2
   kernelspec:
     display_name: Python 3 (ipykernel)
     language: python
@@ -21,5 +21,73 @@ The `data_analysis.py` script, by default contains some junk code, which generat
 ```{python}
 # run the data analysis script to produce the analysis and show
 # the graphs
-%run data_analysis.py
+# %run data_analysis.py
+```
+
+```{python}
+import cost_function_utils
+import pandas as pd
+import numpy as np
+from IPython.display import display
+
+# this just shows how to use your `cost_function_utils` module with the current
+# script
+cost_function_utils.junk_function()
+
+# generate some toy data
+data = pd.DataFrame({'A': np.random.normal(100, 10, 100),
+                    'B': np.random.normal(10, 1, 100)})
+
+# show the data
+display(data)
+
+# create a plot
+data.plot(kind='scatter', x='A', y='B')
+```
+
+```{python}
+hgb_app = pd.read_csv('ckd_full.csv')
+hgb_app
+```
+
+```{python}
+hemoglobin = hgb_app['Hemoglobin']
+hgb_class_initial = hgb_app['Class']
+hgb_app['class_dummy'] = hgb_app['Class'].replace(['ckd', 'not_ckd'],
+                                                      [0, 1])
+class_dummy = hgb_app['class_dummy']
+```
+
+```{python}
+hgb_app[['Class', 'Hemoglobin']].iloc[:20]
+```
+
+```{python}
+hgb_app[['class_dummy', 'Hemoglobin']].iloc[:20]
+```
+
+```{python}
+def ss_any_line(intercept_and_slope, x_values, y_values):
+    
+    # Intercept_and_slope is a list containing two elements, an intercept and a slope.
+    intercept, slope =intercept_and_slope
+    
+    # Values predicted from these x_values, using this intercept and slope.
+    predicted = intercept + x_values * slope
+    
+    # Difference of prediction from the actual y values.
+    error = y_values - predicted
+    
+    # Sum of squared error.
+    return np.mean(error ** 2)
+```
+
+```{python}
+min_lin_reg = minimize(ss_any_line, [1, 1], args=(hemoglobin, class_dummy))
+# Show the results that came back from minimize.
+min_lin_reg
+```
+
+```{python}
+
 ```
