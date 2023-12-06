@@ -4,15 +4,22 @@ import numpy as np
 
 # this is just to demonstrate how functions from this file can be used in 
 # "showcase_notebook.Rmd" - you can delete this function 
-def junk_function():
-    """This is just a junk function to show how you can import functions from this
-    file into your `showcase_notebook`"""
-    print('The function that produced this printout was imported from `cost_function_utils.py`')
 
-def inverse_logit():
+def inverse_logit(y):
     # your code here
-    return
+    odds = np.exp(y)
+    return odds / (odds + 1)
 
-def logistic_regression_cost_function():
+def logistic_regression_cost_function(intercept_and_slope, x, y):
     # your code here
-    return 
+    intercept, slope = intercept_and_slope
+
+    predicted_log_odds = intercept + slope * x
+
+    predicted_prob_of_1 = inverse_logit(predicted_log_odds)
+
+    predicted_prob_of_actual_scores = y * predicted_prob_of_1 + (1 -y) * (1 - predicted_prob_of_1)
+
+    log_likelihood = np.sum(np.log(predicted_prob_of_actual_scores))
+    
+    return - log_likelihood
