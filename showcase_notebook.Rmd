@@ -23,3 +23,5 @@ The `data_analysis.py` script, by default contains some junk code, which generat
 # the graphs
 %run data_analysis.py
 ```
+run data_analysis.py 
+
