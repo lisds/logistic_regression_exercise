@@ -5,6 +5,12 @@ import pandas as pd
 import numpy as np
 from IPython.display import display
 
+# imported modules
+import plotly.express as px
+from scipy.optimize import minimize
+import cost_function_utils
+import statsmodels.formula.api as smf
+
 # this just shows how to use your `cost_function_utils` module with the current
 # script
 cost_function_utils.junk_function()
