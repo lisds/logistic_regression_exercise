@@ -9,10 +9,13 @@ def junk_function():
     file into your `showcase_notebook`"""
     print('The function that produced this printout was imported from `cost_function_utils.py`')
 
-def inverse_logit():
-    # your code here
-    return
+def inverse_logit(log_odds):
+    odds = np.exp(log_odds)
+    return odds / (odds + 1) 
 
-def logistic_regression_cost_function():
-    # your code here
-    return 
+def logistic_regression_cost_function(intercept_and_slope, x_values, y_values):
+    intercept, slope = intercept_and_slope
+    predicted_log_odds = intercept + slope * x_values
+    predicted_probabilities = inverse_logit(predicted_log_odds)
+    sigmoid_error = y_values - predicted_probabilities
+    return np.sum(sigmoid_error ** 2)
