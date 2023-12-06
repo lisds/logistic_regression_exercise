@@ -13,18 +13,25 @@ def inverse_logit(v):
     """ Reverse logit transformation on array `v`"""
     return np.exp(v) / (1 + np.exp(v)) # Reverse the log operation and odds operation.
 
-def logistic_regression_cost_function(int_slo, x_val, y_val):
+def logistic_regression_cost_function(int_slo, x, y):
 
-    # unpack variables
+    """
+    This function calculates the cost function for logistic regression.
+    """
+
     intercept, slope = int_slo
+    
+    # Make predictions on the log odds (straight line) scale
+    predicted_log_odds = intercept + slope * x
 
-    # predicted vals for log-odds straight line
-    predicted_logg_odds = intercept + slope * x_val
+    # Convert these predictions to probabilities.
+    predicted_prob_of_1 = inverse_logit(predicted_log_odds)
+    
+    # Calculate predicted probabilities of the actual scores (THIS IS THE MOST IMPORTANT STEP TO UNDERSTAND!)
+    predicted_prob_of_actual_scores = y * predicted_prob_of_1 + (1 - y) * (1 - predicted_prob_of_1)
 
-    # converting straight line predictions to a sigmoid probability curve
-    predicted_probs = inverse_logit(predicted_logg_odds)
-
-    # calc prediction error
-    sigmoid_err = y_val - predicted_probs
-
-    return np.sum(sigmoid_err**2)
+    # Multiply the predicted probabiity of the actual score
+    likelihood = np.prod(predicted_prob_of_actual_scores)
+    
+    # Ask minimize to find maximum by adding minus sign.
+    return -likelihood
