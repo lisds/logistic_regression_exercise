@@ -11,8 +11,26 @@ def junk_function():
 
 def inverse_logit():
     # your code here
-    return
+    odds = np.ex
+    return np.exp(v)/(1 + np.exp(v))
 
-def logistic_regression_cost_function():
-    # your code here
-    return 
+def logistic_regression_cost_function(int_slo, x, y):
+    
+    """ Simple version of cost function for maximum likelihood
+    """
+    intercept, slope = int_slo
+    
+    # Makes predictions on the log odds (straight line) scale
+    predicted_log_odds = intercept + slope * x
+
+    # Converts these predictions to probabilities.
+    predicted_prob_of_1 = inverse_logit(predicted_log_odds)
+    
+    # Calculate predicted probabilities of the actual scores 
+    predicted_prob_of_actual_scores = y * predicted_prob_of_1 + (1 - y) * (1 - predicted_prob_of_1)
+
+    # Multiplies the predicted probabiity of the actual score
+    likelihood = np.prod(predicted_prob_of_actual_scores)
+    
+    # Asks minimize to find maximum by adding a minus sign.
+    return -likelihood
