@@ -16,7 +16,7 @@ def inverse_logit(v):
 def logistic_regression_cost_function(int_slo, x, y):
 
     """
-    This function calculates the cost function for logistic regression.
+    Function to calculate the cost function for logistic regression
     """
 
     intercept, slope = int_slo
