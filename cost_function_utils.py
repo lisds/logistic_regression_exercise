@@ -9,10 +9,15 @@ def junk_function():
     file into your `showcase_notebook`"""
     print('The function that produced this printout was imported from `cost_function_utils.py`')
 
-def inverse_logit():
-    # your code here
-    return
+def inverse_logit(log_odds):
+    odds = np.exp(log_odds)
+    p = odds/(1 + odds)
+    return p
 
-def logistic_regression_cost_function():
-    # your code here
-    return 
+#I have chosen sum of squared errors as it feels more intuitive and I don't fully understand the benefits of using likelihood as cost
+def logistic_regression_cost_function(intercept_slope, x_values, y_values):
+    intercept, slope = intercept_slope
+    predicted_log_odds = slope * x_values + intercept
+    sigmoid_values = inverse_logit(predicted_log_odds)
+    sigmoid_error = y_values - sigmoid_values
+    return np.sqrt(np.mean(sigmoid_error ** 2))
